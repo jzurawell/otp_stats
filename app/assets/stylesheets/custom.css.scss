@@ -1,0 +1,104 @@
+@import "bootstrap";
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #eee;
+  border-bottom: 2px solid white;
+}
+
+.stats_list {
+  list-style-type: none;
+  margin: 0;
+}
+
+.stats_box {
+  border: 1px solid #d8d8d8;
+  border-radius: 6px;
+  width: 438px;
+  text-align: left;
+  float: left;
+  padding: 10px;
+}
+
+.stats_list .stats_box:nth-child(odd) {
+  margin-right: 10px;
+}
+
+.stats_list .stats_box:nth-child(even) {
+  margin-left: 10px;
+}
+
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #999;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+.lighter {
+  font-weight: lighter;
+}
+
+
+/* header */
+
+#logo {
+  margin-left: 8px;
+  vertical-align: middle;
+  font-size: 1.7em;
+  color: #AFEEEE;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 20px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+#logo:hover {
+  color: #A7F6F6;
+  text-decoration: none;
+}
+
+.pagination {
+    text-align: center;
+}
