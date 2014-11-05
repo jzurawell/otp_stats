@@ -2,12 +2,14 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  http_basic_authenticate_with name: "judgementbot", password: "kaymakicecream"
+
 
   def page
     @page = params[:page] || 1
   end
 
   def per_page
-    @per_page = params[:per_page] || 50
+    @per_page = params[:per_page] || 40
   end
 end

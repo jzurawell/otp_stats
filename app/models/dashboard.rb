@@ -124,57 +124,5 @@ class Dashboard
         response['meta']['total_count']
       end
     end
-
-    def fetch_member_joined
-      now = Time.now
-      completed_after = now - 1.week
-
-      params = {
-        "team" => "ted",
-        "after" => completed_after.to_i,
-        "type" => 9
-      }
-
-      cache_key = params.merge({
-        # Make timestamp less sensitive for caching.
-        'completed-after' => completed_after.to_i/(60 * 60)
-      })
-
-      Rails.cache.fetch("member_joined_#{cache_key}", expires_in: 1.hour) do
-        response = HTTParty.get(
-          Amara::HOST + Amara::ACTIVITY_BASE_URL,
-          :query => params,
-          :headers => Amara::HEADERS
-        ).parsed_response
-
-        response['meta']['total_count']
-      end
-    end
-
-    def fetch_reject_version
-      now = Time.now
-      completed_after = now - 1.week
-
-      params = {
-        "team" => "ted",
-        "after" => completed_after.to_i,
-        "type" => 10
-      }
-
-      cache_key = params.merge({
-        # Make timestamp less sensitive for caching.
-        'completed-after' => completed_after.to_i/(60 * 60)
-      })
-
-      Rails.cache.fetch("reject_version_#{cache_key}", expires_in: 1.hour) do
-        response = HTTParty.get(
-          Amara::HOST + Amara::ACTIVITY_BASE_URL,
-          :query => params,
-          :headers => Amara::HEADERS
-        ).parsed_response
-
-        response['meta']['total_count']
-      end
-    end
   end
 end

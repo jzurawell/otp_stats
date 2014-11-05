@@ -1,20 +1,11 @@
-<div class="hero-unit">
-  <h1><%= number_with_delimiter(@tasks_total_count) %><small> tasks</small></h1>
-  <p class="text-center"><small>completed this past week</small></p>
-</div>
+  <div class="hero-unit">
+    <h1><%= number_with_delimiter(@tasks_total_count) %><small> tasks</small></h1>
+    <p class="text-center"><small>completed this past week</small></p>
+  </div>
 
-<ul class="stats_list clearfix">
-  <li class="lead stats_box"><strong><%= @tasks_approve_count %></strong><span class="muted"> approvals</span></li>
-  <li class="lead stats_box"><strong><%= @tasks_translate_count %></strong><span class="muted"> translations</span></li> 
-  <li class="lead stats_box"><strong><%= @tasks_review_count %></strong><span class="muted"> reviews</span></li>
-  <li class="lead stats_box"><strong><%= @tasks_subtitle_count %></strong><span class="muted"> transcriptions</span></li>
-</ul>
-
-<hr>
-
-<p>Activity:</p>
-
-<ul class="stats_list">
-  <li class="lead stats_box"><strong><%= @member_joined_count %></strong><span class="muted"> new volunteers</span></li>
-  <li class="lead stats_box"><strong><%= @reject_version_count %></strong><span class="muted"> rejected versions</span></li>
-</ul>
+  <ul class="stats_list clearfix">
+    <li class="lead stats_box"><strong><%= @tasks_approve_count %></strong><span class="muted">   approvals </span></li> 
+    <li class="lead stats_box"><strong><%= @tasks_translate_count %></strong><span class="muted">  translations</span></li> 
+    <li class="lead stats_box"><strong><%= @tasks_review_count %></strong><span class="muted">  reviews</span></li>
+    <li class="lead stats_box"><strong><%= @tasks_subtitle_count %></strong><span class="muted">  transcriptions</span></li>
+  </ul>

@@ -38,11 +38,13 @@ class Task
 
         responses.push(response)
 
+        puts response['objects']
+
   			next_page = response['meta']['next']
         
         # Use looser check 'blank?' in case response is not a nil object.
         # This will return true if next_page is "", false, nil, or [].
-  			until next_page.blank?
+  			
   				paginated_response = HTTParty.get(
             host + next_page,
             :query => params,
@@ -51,8 +53,8 @@ class Task
 
           responses.push(paginated_response)
 
-  				next_page = paginated_response['meta']['next']
-  			end	
+  				next_start_page = paginated_response['meta']['next']
+  				
         
         responses
       end
@@ -82,7 +84,27 @@ class Task
       end
 
       # [{TASK},{TASK},{TASK},...]
-      tasks_arrays.flatten
+      tasks = tasks_arrays.flatten
+
+      approve_tasks   = tasks.select{|t| t['type'] == 'Approve'}
+      review_tasks    = tasks.select{|t| t['type'] == 'Review'}
+      translate_tasks = tasks.select{|t| t['type'] == 'Translate'}
+      subtitle_tasks  = tasks.select{|t| t['type'] == 'Subtitle'}
+
+      # 'sort_by!' sorts an array *in place*
+      # contrast to 'sort_by' (no exclamation) which *returns* the sorted array
+      approve_tasks.sort_by!   {|t| t['completed'].to_time }
+      review_tasks.sort_by!    {|t| t['completed'].to_time }
+      translate_tasks.sort_by! {|t| t['completed'].to_time }
+      subtitle_tasks.sort_by!  {|t| t['completed'].to_time }
+
+      tasks_sorted =
+        approve_tasks.reverse +
+        review_tasks.reverse +
+        translate_tasks.reverse +
+        subtitle_tasks.reverse
+
+      tasks_sorted
     end
 	end
 end
