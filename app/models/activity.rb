@@ -22,8 +22,7 @@ class Activity
           params = {
             "team" => "ted",
             "after" => after.to_i,
-            "type" => TYPE_MAPPING[type],
-            "team_activity" => 1
+            "type" => TYPE_MAPPING[type]
           }
 
           response = get(
@@ -39,6 +38,7 @@ class Activity
             "team" => "ted",
             "after" => after.to_i,
             "type" => TEAM_ACTIVITY_MAPPING[type],
+            "team-activity" => 1
           }
 
           response = get(
