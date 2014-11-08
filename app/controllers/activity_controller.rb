@@ -10,15 +10,5 @@ class ActivityController < ApplicationController
     @comment_count = Activity.fetch(:comment, after)
     @add_version_count = Activity.fetch(:add_version, after)
     @add_video_count = Activity.fetch(:add_video, after)
-
-    #if  @member_joined_count.nil? ||
-    #    @member_left_count.nil? ||
-    #    @reject_version_count.nil? ||
-    #    @decline_version_count.nil? ||
-    #    @comment_count.nil? ||
-    #    @add_version_count.nil? ||
-    #    @add_video_count.nil?
-    #        return render inline: '#amarasux'
-    #end
   end
 end
