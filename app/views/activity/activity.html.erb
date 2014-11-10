@@ -1,13 +1,60 @@
-<div class="hero-unit">
-  <h1><%= number_with_delimiter(@add_version_count) %><small> versions</small></h1>
-  <p class="text-center"><small>added this past week</small></p>
+<div class="jumbotron">
+  <div class="container">
+    <h1><%= number_with_delimiter(@add_version_count) %><small> versions</small></h1>
+    <p class="text-center"><small>added this past week</small></p>
+  </div>
 </div>
 
-<ul class="stats_list clearfix">
-  <li class="lead stats_box"><strong><%= @member_joined_count %></strong><span class="muted"> volunteers joined</span></li>
-  <li class="lead stats_box"><strong><%= @member_left_count %></strong><span class="muted"> volunteers left</span></li>
-  <li class="lead stats_box"><strong><%= @reject_version_count %></strong><span class="muted"> rejected versions</span></li>
-  <li class="lead stats_box"><strong><%= @decline_version_count %></strong><span class="muted"> declined versions</span></li>
-  <li class="lead stats_box"><strong><%= @comment_count %></strong><span class="muted"> comments</span></li>
-  <li class="lead stats_box"><strong><%= @add_video_count %></strong><span class="muted"> videos added</span></li>
-</ul>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <strong><%= @member_joined_count %></strong> volunteers joined
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <strong><%= @member_left_count %></strong> volunteers left      
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <strong><%= @reject_version_count %></strong> rejected versions
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <strong><%= @decline_version_count %></strong> declined versions      
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <strong><%= @comment_count %></strong> comments
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <strong><%= @add_video_count %></strong> videos added      
+      </div>
+    </div>
+  </div>
+</div>

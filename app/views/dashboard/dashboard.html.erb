@@ -1,11 +1,43 @@
-  <div class="hero-unit">
+<div class="jumbotron">
+  <div class="container">
     <h1><%= number_with_delimiter(@tasks_total_count) %><small> tasks</small></h1>
     <p class="text-center"><small>completed this past week</small></p>
   </div>
+</div>
 
-  <ul class="stats_list clearfix">
-    <li class="lead stats_box"><strong><%= @tasks_approve_count %></strong><span class="muted">   approvals </span></li> 
-    <li class="lead stats_box"><strong><%= @tasks_translate_count %></strong><span class="muted">  translations</span></li> 
-    <li class="lead stats_box"><strong><%= @tasks_review_count %></strong><span class="muted">  reviews</span></li>
-    <li class="lead stats_box"><strong><%= @tasks_subtitle_count %></strong><span class="muted">  transcriptions</span></li>
-  </ul>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <strong><%= @tasks_approve_count %></strong> <a href="/approvals">approvals</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <strong><%= @tasks_review_count %></strong> <a href="/">reviews</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <strong><%= @tasks_translate_count %></strong> <a href="/">translations</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <strong><%= @tasks_subtitle_count %></strong> <a href="/">transcriptions</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,7 @@
 class ActivityController < ApplicationController
+  def test
+  end
+
   def activity
     default_after = Time.now - 1.week
     after = params[:after] || default_after

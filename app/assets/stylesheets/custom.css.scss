@@ -1,3 +1,4 @@
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 /* universal */
@@ -7,7 +8,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+ padding-top: 70px;
 }
 
 section {
@@ -47,6 +48,15 @@ hr {
   margin-left: 10px;
 }
 
+.glyphicon {
+  float: left;
+  margin-right: 6px;
+}
+
+.panel-body {
+  font-size: 1.2em;
+}
+
 
 /* typography */
 
@@ -56,8 +66,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
+  letter-spacing: -1px;
   text-align: center;
 }
 
@@ -79,14 +88,17 @@ p {
   font-weight: lighter;
 }
 
+.text-center {
+  line-height: 1em;
+}
+
 
 /* header */
 
 #logo {
-  margin-left: 8px;
   vertical-align: middle;
   font-size: 1.7em;
-  color: #AFEEEE;
+  color: #35d1ff;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 20px;
@@ -95,8 +107,12 @@ p {
 }
 
 #logo:hover {
-  color: #A7F6F6;
+  color: #81e2ff;
   text-decoration: none;
+}
+
+img {
+  padding: 5px;
 }
 
 .pagination {
@@ -110,7 +126,7 @@ footer {
   margin-bottom: 10px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  color: #D0D0D0;
+  color: #A8A8A8;
 } 
 
 footer a {
@@ -118,7 +134,7 @@ footer a {
   text-decoration: none;
   &:hover {
   text-decoration: none;
-  color: #989898;
+  color: #696969;
   }
 }
 
