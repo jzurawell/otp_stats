@@ -57,7 +57,7 @@ GEM
     kaminari (0.16.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    kaminari-bootstrap (0.1.3)
+    kaminari-bootstrap (3.0.1)
       kaminari (>= 0.13.0)
       rails
     mail (2.5.4)
@@ -131,7 +131,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
-  kaminari-bootstrap (~> 0.1.3)
+  kaminari-bootstrap (~> 3.0.1)
   rails (= 4.1.0)
   sass-rails (~> 4.0.2)
   sdoc

@@ -36,7 +36,7 @@ end
 
 gem 'httparty'
 gem 'kaminari'
-gem 'kaminari-bootstrap', '~> 0.1.3'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'actionpack-action_caching'
 
 # Use ActiveModel has_secure_password

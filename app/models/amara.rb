@@ -1,14 +1,15 @@
 class Amara
+    include HTTParty
+    # debug_output $stdout # <~ uncomment for verbose output
+
     HOST = "http://www.amara.org"
+    BASE_URL = "/api2/partners"
     TASKS_BASE_URL = "/api2/partners/teams/ted/tasks"
     ACTIVITY_BASE_URL = "/api2/partners/activity"
     HEADERS = {
         "X-api-username" => Rails.application.secrets.amara_api_username,
         "X-apikey" => Rails.application.secrets.amara_api_key
     }
-
-    include HTTParty
-    # debug_output $stdout # <~ uncomment for verbose output
 
     class << self
         def fetch_tasks(params={})
