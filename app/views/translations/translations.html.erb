@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1><%= number_with_delimiter(@total_count) %> <small>translations completed</small></h1>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Assignee</th>
+            <th>Date</th>
+            <th>Language</th>
+            <th>Type</th>
+            <th>Video ID</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% page_num = @page.to_i %>
+    <% per_page_num = @per_page.to_i %>
+    <% @translation_tasks.each_with_index do |task, index| %>
+        <tr>
+            <td><%= index + 1 + (page_num - 1) * per_page_num %></td>
+            <td><a href="http://amara.org/en/profiles/profile/<%=task["assignee"]%>/"><%= task["assignee"] %></a></td>
+            <td><%= task["completed"].to_time.strftime('%b %-d, %Y %H:%M %P %Z') %></td>
+            <td><%= task["language"] %></td>
+            <td><span class="label <%=task["type"]%>"><%=task["type"] %></span></td>
+            <td><a href="http://amara.org/en/videos/<%=task["video_id"]%>/<%=task["language"]%>/"><%= task["video_id"] %></a> </td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<%= paginate @translation_tasks %>
