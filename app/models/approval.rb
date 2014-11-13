@@ -1,6 +1,6 @@
-class Approvals
+class Approval
   class << self
-    def fetch_approvals_total
+    def fetch_approval_total
       now = Time.now
       completed_after = now - 1.week
       
@@ -41,7 +41,7 @@ class Approvals
         'completed-after' => completed_after.to_i/(60 * 60)
       })
 
-      #Rails.cache.fetch("approval_tasks_#{cache_key}", expires_in: 1.hour) do
+      Rails.cache.fetch("approval_tasks_#{cache_key}", expires_in: 1.hour) do
 
         response = HTTParty.get(
           Amara::HOST + Amara::TASKS_BASE_URL,
@@ -66,6 +66,6 @@ class Approvals
 
         results_array.flatten.reverse
       end
-    #end
+    end
   end
 end
