@@ -13,6 +13,7 @@ OtpStats::Application.routes.draw do
   get 'approvals' => 'approvals#approvals'
   get 'reviews' => 'reviews#reviews'
   get 'translations' => 'translations#translations'
+  get 'transcriptions' => 'transcriptions#transcriptions'
   get 'activity/test' => 'activity#test'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

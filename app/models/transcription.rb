@@ -1,12 +1,12 @@
-class Translation
+class Transcription
   class << self
-    def fetch_translation_total
+    def fetch_transcription_total
       now = Time.now
       completed_after = now - 1.week
       
       params = {
         "completed-after" => completed_after.to_i,
-        "type" => "Translate"
+        "type" => "Subtitle"
       }
 
       cache_key = params.merge({
@@ -14,7 +14,7 @@ class Translation
         'completed-after' => completed_after.to_i/(60 * 60)
       })
 
-      Rails.cache.fetch("translation_total_#{cache_key}", expires_in: 1.hour) do
+      Rails.cache.fetch("transcription_total_#{cache_key}", expires_in: 1.hour) do
 
         response = HTTParty.get(
           Amara::HOST + Amara::TASKS_BASE_URL,
@@ -26,13 +26,13 @@ class Translation
       end
     end
 
-    def fetch_translation_tasks
+    def fetch_transcription_tasks
       now = Time.now
       completed_after = now - 1.week
       
       params = {
         "completed-after" => completed_after.to_i,
-        "type" => "Translate",
+        "type" => "Subtitle",
         "limit" => 40
       }
 
@@ -41,7 +41,7 @@ class Translation
         'completed-after' => completed_after.to_i/(60 * 60)
       })
 
-      Rails.cache.fetch("translation_tasks_#{cache_key}", expires_in: 1.hour) do
+      Rails.cache.fetch("transcription_tasks_#{cache_key}", expires_in: 1.hour) do
 
         response = HTTParty.get(
           Amara::HOST + Amara::TASKS_BASE_URL,
