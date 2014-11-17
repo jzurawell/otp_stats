@@ -1,12 +1,14 @@
 source 'https://rubygems.org'
 
+ruby '2.1.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 gem 'bootstrap-sass', '3.3.0'
 gem 'sprockets', '2.11.0'
 
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
+gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -38,6 +40,8 @@ gem 'httparty'
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'actionpack-action_caching'
+gem 'rails_12factor'
+gem 'pg'
 
 
 # Use ActiveModel has_secure_password
