@@ -16,51 +16,51 @@ class Activity
     :member_left     => 11
   }
 
-    class << self
-      # Activity.fetch(:member_joined, Time.now - 1.week)
-      def fetch(type, after)
-        params = {
-          "team" => "ted",
-          "after" => after.to_i,
-          "type" => TYPE_MAPPING[type]
-        }
+  class << self
+  # Activity.fetch(:member_joined, Time.now - 1.week)
+    def fetch(type, after)
+      params = {
+        "team" => "ted",
+        "after" => after.to_i,
+        "type" => TYPE_MAPPING[type]
+      }
 
-        cache_key = params.merge({
-         'after' => after.to_i/(60 * 60)
-        })
+      cache_key = params.merge({
+       'after' => after.to_i/(60 * 60)
+      })
 
-        Rails.cache.fetch("#{type}_#{cache_key}", expires_in: 1.hour) do
+      Rails.cache.fetch("#{type}_#{cache_key}", expires_in: 1.hour) do
 
-          response = get(
-            Amara::HOST + Amara::ACTIVITY_BASE_URL,
-            :query => params,
-            :headers => Amara::HEADERS
-          ).parsed_response
-          response.try(:[], 'meta').try(:[], 'total_count')
-        end
-      end
-
-      def fetch_team_activity(type, after)
-        params = {
-          "team" => "ted",
-          "after" => after.to_i,
-          "type" => TEAM_ACTIVITY_MAPPING[type],
-          "team-activity" => 1
-        }
-
-        cache_key = params.merge({
-          'after' => after.to_i/(60 * 60)
-        })
-
-        Rails.cache.fetch("team_activity_#{cache_key}", expires_in: 1.hour) do
-
-          response = get(
-            Amara::HOST + Amara::ACTIVITY_BASE_URL,
-            :query => params,
-            :headers => Amara::HEADERS
-          ).parsed_response
-          response.try(:[], 'meta').try(:[], 'total_count')
-        end
+        response = get(
+          Amara::HOST + Amara::ACTIVITY_BASE_URL,
+          :query => params,
+          :headers => Amara::HEADERS
+        ).parsed_response
+        response.try(:[], 'meta').try(:[], 'total_count')
       end
     end
+
+    def fetch_team_activity(type, after)
+      params = {
+        "team" => "ted",
+        "after" => after.to_i,
+        "type" => TEAM_ACTIVITY_MAPPING[type],
+        "team-activity" => 1
+      }
+
+      cache_key = params.merge({
+        'after' => after.to_i/(60 * 60)
+      })
+
+      Rails.cache.fetch("team_activity_#{cache_key}", expires_in: 1.hour) do
+
+        response = get(
+          Amara::HOST + Amara::ACTIVITY_BASE_URL,
+          :query => params,
+          :headers => Amara::HEADERS
+        ).parsed_response
+        response.try(:[], 'meta').try(:[], 'total_count')
+      end
+    end
+  end
 end
