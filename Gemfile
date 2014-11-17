@@ -49,7 +49,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'actionpack-action_caching'
 gem 'rails_12factor'
-
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 
 
 # Use ActiveModel has_secure_password
