@@ -8,7 +8,15 @@ gem 'bootstrap-sass', '3.3.0'
 gem 'sprockets', '2.11.0'
 
 # Use sqlite3 as the database for Active Record
+#gem 'sqlite3'
+
+group :production do
+gem 'pg'
+end
+
+group :development do
 gem 'sqlite3'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -41,7 +49,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'actionpack-action_caching'
 gem 'rails_12factor'
-gem 'pg'
+
 
 
 # Use ActiveModel has_secure_password
