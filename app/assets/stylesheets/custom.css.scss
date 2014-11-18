@@ -137,3 +137,12 @@ footer a {
 footer small {
   float: left;
 }
+
+.pagination .page.gap {
+  display: none;
+}
+
+.pagination .first,
+.pagination .last {
+  display: none;
+}
