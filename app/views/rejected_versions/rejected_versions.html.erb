@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h1><%= number_with_delimiter(@reject_version_count) %> <small>rejected versions</small>
+  </h1>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th>User</th>
+      <th>Date</th>
+      <th>Language</th>
+      <th>Video</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% page_num = @page.to_i %>
+    <% per_page_num = @per_page.to_i %>
+    <% @rejected_versions.each_with_index do |version, index| %>
+        <tr>
+            <td><%= index + 1 + (page_num - 1) * per_page_num %></td>
+            <td><a href="http://amara.org/en/profiles/profile/<%= version['user'] %>/"><%= version['user'] %></a></td>
+            <td><%= version['created'].to_time.strftime('%b %-d, %Y %H:%M %P %Z') %></td>
+            <td><%= version['language'] %></td>
+            <td><a href="http://amara.org/<%= version['language_url'] %>"><%= version['video'] %></a></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @rejected_versions %>

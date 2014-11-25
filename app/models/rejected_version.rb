@@ -1,12 +1,13 @@
-class Join
+class RejectedVersion
   class << self
-    def fetch_members_joined(after)
+    def fetch_rejected_versions(after)
+
+      results_array = []
 
       params = {
        "team" => "ted",
        "after" => after.to_i,
-       "type" => 9,
-       "team-activity" => 1,
+       "type" => 10,
        "limit" => 40
        }
 
@@ -14,14 +15,13 @@ class Join
        'after' => after.to_i/(60 * 60)
       })
 
-      Rails.cache.fetch("members_joined_#{cache_key}", expires_in: 1.hour) do
+      Rails.cache.fetch("rejected_versions_#{cache_key}", expires_in: 1.hour) do
 
         response = HTTParty.get(
           Amara::HOST + Amara::ACTIVITY_BASE_URL,
           :query => params, :headers => Amara::HEADERS
           ).parsed_response
   
-        results_array = []
         results_array.push(response['objects'])
   
         next_page = response['meta']['next']
@@ -35,7 +35,7 @@ class Join
           next_page = paginated_response['meta']['next']
         end
 
-      results_array.flatten
+        results_array.flatten
       end
     end
   end

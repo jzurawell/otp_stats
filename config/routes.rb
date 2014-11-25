@@ -14,8 +14,11 @@ OtpStats::Application.routes.draw do
   get 'reviews' => 'reviews#reviews'
   get 'translations' => 'translations#translations'
   get 'transcriptions' => 'transcriptions#transcriptions'
-  get 'members_joined' => 'joins#joins'
-  get 'activity/test' => 'activity#test'
+  get 'members_joined' => 'members_joined#members_joined'
+  get 'members_left' => 'members_left#members_left'
+  get 'rejected_versions' => 'rejected_versions#rejected_versions'
+
+  get 'activity/test' => 'activity#test' 
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
