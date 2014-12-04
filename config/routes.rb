@@ -17,6 +17,7 @@ OtpStats::Application.routes.draw do
   get 'members_joined' => 'members_joined#members_joined'
   get 'members_left' => 'members_left#members_left'
   get 'rejected_versions' => 'rejected_versions#rejected_versions'
+  get 'declined_versions' => 'declined_versions#declined_versions'
 
   get 'activity/test' => 'activity#test' 
 

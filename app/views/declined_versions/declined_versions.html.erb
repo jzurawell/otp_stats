@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1><%= number_with_delimiter(@reject_version_count) %> <small>rejected versions</small>
+  <h1><%= number_with_delimiter(@decline_version_count) %> <small>declined versions</small>
   </h1>
 </div>
 
@@ -16,7 +16,7 @@
   <tbody>
     <% page_num = @page.to_i %>
     <% per_page_num = @per_page.to_i %>
-    <% @rejected_versions.each_with_index do |version, index| %>
+    <% @declined_versions.each_with_index do |version, index| %>
         <tr>
             <td><%= index + 1 + (page_num - 1) * per_page_num %></td>
             <td><a href="http://amara.org/en/profiles/profile/<%= version['user'] %>/"><%= version['user'] %></a></td>
@@ -28,4 +28,4 @@
   </tbody>
 </table>
 
-<%= paginate @rejected_versions %>
+<%= paginate @declined_versions %>
