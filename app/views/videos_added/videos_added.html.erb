@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h1><%= number_with_delimiter(@add_video_count) %> <small>videos added</small>
+  </h1>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Video</th>
+      <th>Date</th>
+      <th>User</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% page_num = @page.to_i %>
+    <% per_page_num = @per_page.to_i %>
+    <% @videos_added.each_with_index do |video, index| %>
+        <tr>
+            <td><%= index + 1 + (page_num - 1) * per_page_num %></td>
+            <td><a href="http://amara.org/en/videos/<%= video['video'] %>"><%= video['video'] %></a></td>
+            <td><%= video['created'].to_time.strftime('%b %-d, %Y %H:%M %P %Z') %></td>
+            <td><a href="http://amara.org/en/profiles/profile/<%= video['user'] %>/"><%= video['user'] %></a></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @videos_added %>
