@@ -5,39 +5,29 @@
   </div>
 </div>
 
+<h4>Tasks by type</h4><br />
+
+<script type="text/javascript">
+var GRAPH_DATA = [<%= @tasks_approve_count %>, <%= @tasks_review_count %>, <%= @tasks_translate_count %>, <%= @tasks_subtitle_count %>];
+</script>
+
 <div class="row">
-  <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <strong><%= @tasks_approve_count %></strong> <a href="/approvals">approvals</a>
-      </div>
-    </div>
+  <div class="col-md-12">
+    <canvas width="1140" height="400px" id="mycanvas">
+    </canvas>
   </div>
+</div><br /><br />
 
-  <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <strong><%= @tasks_review_count %></strong> <a href="/reviews">reviews</a>
-      </div>
-    </div>
-  </div>
-</div>
-
+<h4>View recent tasks</h4><br />
 
 <div class="row">
   <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <strong><%= @tasks_translate_count %></strong> <a href="/translations">translations</a>
-      </div>
-    </div>
+    <a class="btn btn-info btn-lg btn-block" href="/approvals" role="button">Approvals</a>
+    <a class="btn btn-info btn-lg btn-block" href="/reviews" role="button">Reviews</a>
   </div>
-  
-  <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <strong><%= @tasks_subtitle_count %></strong> <a href="/transcriptions">transcriptions</a>
-      </div>
-    </div>
-  </div>
+
+ <div class="col-md-6">
+  <a class="btn btn-info btn-lg btn-block" href="/translations" role="button">Translations</a>
+  <a class="btn btn-info btn-lg btn-block" href="/transcriptions" role="button">Transcriptions</a>
+ </div>
 </div>

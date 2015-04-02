@@ -11,11 +11,13 @@ gem 'sprockets', '2.11.0'
 #gem 'sqlite3'
 
 group :production do
-gem 'pg'
+  gem 'pg'
 end
 
 group :development do
-gem 'sqlite3'
+  gem 'sqlite3'
+  gem 'better_errors'
+  gem 'meta_request'
 end
 
 # Use SCSS for stylesheets
