@@ -36,12 +36,16 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.0)
+    autoprefixer-rails (5.1.8)
+      execjs
+      json
     better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
-    bootstrap-sass (3.3.0.0)
-      sass (~> 3.2)
+    bootstrap-sass (3.3.4.1)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.2.19)
     builder (3.2.2)
     callsite (0.0.11)
     coderay (1.1.0)
@@ -150,7 +154,7 @@ PLATFORMS
 DEPENDENCIES
   actionpack-action_caching
   better_errors
-  bootstrap-sass (= 3.3.0)
+  bootstrap-sass (~> 3.3.4)
   coffee-rails (~> 4.0.0)
   heroku_secrets!
   httparty

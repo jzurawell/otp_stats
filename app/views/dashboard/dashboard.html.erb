@@ -1,11 +1,27 @@
-<div class="jumbotron">
-  <div class="container">
-    <h1><%= number_with_delimiter(@tasks_total_count) %><small> tasks</small></h1>
-    <p class="text-center"><small>completed this past week</small></p>
+<h1>This past week's stats</h1><br /><br />
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="jumbotron">
+      <div class="container">
+        <h1><%= number_with_delimiter(@tasks_total_count) %><br /><small> tasks completed</small></h1>
+      </div>
+    </div>
+  </div>
+
+  <div id="gray-box" class="col-md-6">
+    <h4>View completed tasks</h4><br />
+      <div class="col-md-6">
+        <a class="btn btn-info btn-lg btn-block" href="/approvals" role="button">Approvals</a>
+        <a class="btn btn-info btn-lg btn-block" href="/reviews" role="button">Reviews</a>
+      </div>
+      <div class="col-md-6">
+        <a class="btn btn-info btn-lg btn-block" href="/translations" role="button">Translations</a>
+        <a class="btn btn-info btn-lg btn-block" href="/transcriptions" role="button">Transcriptions</a>
+      </div>
   </div>
 </div>
 
-<h4>Tasks by type</h4><br />
 
 <script type="text/javascript">
 var GRAPH_DATA = [<%= @tasks_approve_count %>, <%= @tasks_review_count %>, <%= @tasks_translate_count %>, <%= @tasks_subtitle_count %>];
@@ -13,21 +29,8 @@ var GRAPH_DATA = [<%= @tasks_approve_count %>, <%= @tasks_review_count %>, <%= @
 
 <div class="row">
   <div class="col-md-12">
+    <h4>Tasks by type</h4><br />
     <canvas width="1140" height="400px" id="mycanvas">
     </canvas>
   </div>
 </div><br /><br />
-
-<h4>View recent tasks</h4><br />
-
-<div class="row">
-  <div class="col-md-6">
-    <a class="btn btn-info btn-lg btn-block" href="/approvals" role="button">Approvals</a>
-    <a class="btn btn-info btn-lg btn-block" href="/reviews" role="button">Reviews</a>
-  </div>
-
- <div class="col-md-6">
-  <a class="btn btn-info btn-lg btn-block" href="/translations" role="button">Translations</a>
-  <a class="btn btn-info btn-lg btn-block" href="/transcriptions" role="button">Transcriptions</a>
- </div>
-</div>
