@@ -1,8 +1,8 @@
 class Task
 	class << self
 		def fetch_data(user_completed_after=nil)
-      host = "http://www.amara.org"
-      base_url = "/api2/partners/teams/ted/tasks"
+      host = "http://www.amara.org/"
+      base_url = "api/teams/ted/tasks/"
       headers = {
         "X-api-username" => Rails.application.secrets.amara_api_username,
         "X-apikey" => Rails.application.secrets.amara_api_key
