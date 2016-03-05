@@ -27,7 +27,7 @@ class RejectedVersion
         next_page = response['meta']['next']
         until next_page.nil?
           paginated_response = HTTParty.get(
-            Amara::HOST + next_page,
+            next_page,
             :query => params, :headers => Amara::HEADERS
             ).parsed_response
   
