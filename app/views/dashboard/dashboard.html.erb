@@ -1,5 +1,6 @@
-<h1><%= (Date.today - 7.days).to_formatted_s(:short) %> – <%= Date.today.to_formatted_s(:short) %></h1><br /><br />
-
+<h1>This week</h1>
+<p class="center"><%= (Date.today - 7.days).strftime("%b %e") %> – <%= Date.today.strftime("%b %e") %></p>
+<br /><br />
 <div class="row">
   <div class="col-md-6">
     <div class="jumbotron">
